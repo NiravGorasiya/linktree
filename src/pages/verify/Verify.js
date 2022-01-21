@@ -73,7 +73,7 @@ function Verify(props) {
                   {response && response}
                 </Typography>
               </Fade>
-              To verify Your account,Click on the link sent to your 
+             
               <div className={classes.formButtons}>
                 {isLoading ? (
                   <CircularProgress size={26} className={classes.loginLoader} />
@@ -84,7 +84,7 @@ function Verify(props) {
                     color="primary"
                     size="large"
                   >
-                    Continue to my Linktree
+                    Continue
                   </Button>
                 )}
               </div>
