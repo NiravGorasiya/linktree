@@ -31,11 +31,9 @@ function Verifyemail(props) {
   useEffect(() => {
     if (props.location.state) {
       if (props.location.state.email) {
-        console.log(props.location.state.email,"verifyemail");
         SetEmail(props.location.state.email);
       }
       if (props.location.state.username) {
-        console.log(props.location.state.username,"username");
         SetUsername(props.location.state.username);
       }
     }
@@ -46,11 +44,11 @@ function Verifyemail(props) {
     const data ={email:email,username:username}
     verifyemail(data)
     .then(response=>{
-      console.log(response);
+      console.log(response,"response");
       history.push("login")
     })
     .catch(err=>{
-      console.log(err);
+      console.log(err.response);
     })
 
   }

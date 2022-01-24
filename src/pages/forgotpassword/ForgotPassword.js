@@ -27,13 +27,14 @@ function ForgotPassword(props) {
   const [username, setUsername] = useState("")
   const [response, setResponse] = useState("");
 
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     let data = { username }
     forgotAdminPass(data)
-    .then(response => {
-      console.log(response.data.info);
-    })
+      .then(response => {
+        setResponse(response.data.info)
+      })
       .catch((err) => {
         if (err.response.status == 404) {
           setIsLoading(false)
@@ -41,7 +42,7 @@ function ForgotPassword(props) {
         }
       })
   }
-
+  console.log(response, "response")
   return (
     <Grid container className={classes.container}>
       <div className={classes.logotypeContainer}>
@@ -55,9 +56,9 @@ function ForgotPassword(props) {
           </Tabs>
           <form onSubmit={handleFormSubmit}>
             <React.Fragment>
-              <Fade in={error}>
-                <Typography color="secondary" className={classes.errorMessage}>
-                  {response && response}
+              <Fade in={error && response}>
+                <Typography color="secondary" style={{ "visibility": "inherit",opacity:"inherit" }}>
+                  {error ? error : response}
                 </Typography>
               </Fade>
               <TextField

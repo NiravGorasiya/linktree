@@ -43,16 +43,7 @@ function Verify(props) {
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    const data ={email:email,username:username}
-    verifyemail(data)
-    .then(response=>{
-      console.log(response);
-      history.push("login")
-    })
-    .catch(err=>{
-      console.log(err);
-    })
-
+    history.push("/app/dashboard")
   }
 
   return (
@@ -64,7 +55,7 @@ function Verify(props) {
       <div className={classes.formContainer}>
         <div className={classes.form}>
           <Tabs value={0} indicatorColor="primary" textColor="primary" centered>
-            <Tab label="Thanks for signing up" classes={{ root: classes.tab }} />
+            <Tab label="verify email" classes={{ root: classes.tab }} />
           </Tabs>
           <form onSubmit={handleSubmit}>
             <React.Fragment>
@@ -73,7 +64,6 @@ function Verify(props) {
                   {response && response}
                 </Typography>
               </Fade>
-             
               <div className={classes.formButtons}>
                 {isLoading ? (
                   <CircularProgress size={26} className={classes.loginLoader} />
@@ -84,7 +74,7 @@ function Verify(props) {
                     color="primary"
                     size="large"
                   >
-                    Continue
+                    Continue 
                   </Button>
                 )}
               </div>

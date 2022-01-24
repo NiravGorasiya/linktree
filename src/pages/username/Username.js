@@ -33,11 +33,9 @@ function UserName(props) {
   useEffect(() => {
     if (props.location.state) {
       if (props.location.state.data) {
-        console.log(props.location.state.data, "username");
         setUserName(props.location.state.data);
       }
       if (props.location.state.email) {
-        console.log(props.location.state.email, "email username");
         setEmail(props.location.state.email, "email");
       }
     }
